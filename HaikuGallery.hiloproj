@@ -1,0 +1,163 @@
+# HiLo project file
+project HaikuGallery
+format 1
+
+configuration Debug
+	setting OPTIMIZE 0
+	setting DEBUG 1
+end
+
+configuration Release
+	setting OPTIMIZE 2
+	setting DEBUG 0
+end
+
+target HaikuGallery
+	type application
+	signature application/x-vnd.Druware-HaikuGallery
+	source src/App.cpp
+	source src/MainWindow.cpp
+	source src/NavigationList.cpp
+	source src/PageRegistry.cpp
+	source src/pages/AlertPage.cpp
+	source src/pages/BoxPage.cpp
+	source src/pages/ButtonPage.cpp
+	source src/pages/CardLayoutPage.cpp
+	source src/pages/CheckBoxPage.cpp
+	source src/pages/ColorControlPage.cpp
+	source src/pages/FilePanelPage.cpp
+	source src/pages/GalleryPage.cpp
+	source src/pages/GridLayoutPage.cpp
+	source src/pages/GroupLayoutPage.cpp
+	source src/pages/HomePage.cpp
+	source src/pages/ListViewPage.cpp
+	source src/pages/MenuBarPage.cpp
+	source src/pages/MenuFieldPage.cpp
+	source src/pages/OptionPopUpPage.cpp
+	source src/pages/OutlineListViewPage.cpp
+	source src/pages/PopUpMenuPage.cpp
+	source src/pages/RadioButtonPage.cpp
+	source src/pages/ScrollViewPage.cpp
+	source src/pages/SeparatorViewPage.cpp
+	source src/pages/SliderPage.cpp
+	source src/pages/SplitViewPage.cpp
+	source src/pages/StatusBarPage.cpp
+	source src/pages/StringViewPage.cpp
+	source src/pages/TabViewPage.cpp
+	source src/pages/TextControlPage.cpp
+	source src/pages/TextViewPage.cpp
+	source src/pages/ToolTipPage.cpp
+	header src/App.h
+	header src/MainWindow.h
+	header src/NavigationList.h
+	header src/PageRegistry.h
+	header src/pages/AlertPage.h
+	header src/pages/BoxPage.h
+	header src/pages/ButtonPage.h
+	header src/pages/CardLayoutPage.h
+	header src/pages/CheckBoxPage.h
+	header src/pages/ColorControlPage.h
+	header src/pages/FilePanelPage.h
+	header src/pages/GalleryPage.h
+	header src/pages/GridLayoutPage.h
+	header src/pages/GroupLayoutPage.h
+	header src/pages/HomePage.h
+	header src/pages/ListViewPage.h
+	header src/pages/MenuBarPage.h
+	header src/pages/MenuFieldPage.h
+	header src/pages/OptionPopUpPage.h
+	header src/pages/OutlineListViewPage.h
+	header src/pages/PopUpMenuPage.h
+	header src/pages/RadioButtonPage.h
+	header src/pages/ScrollViewPage.h
+	header src/pages/SeparatorViewPage.h
+	header src/pages/SliderPage.h
+	header src/pages/SplitViewPage.h
+	header src/pages/StatusBarPage.h
+	header src/pages/StringViewPage.h
+	header src/pages/TabViewPage.h
+	header src/pages/TextControlPage.h
+	header src/pages/TextViewPage.h
+	header src/pages/ToolTipPage.h
+	resource HaikuGallery.rdef
+	library be
+	library tracker
+	include src
+	include src/pages
+end
+
+scheme HaikuGallery
+	target HaikuGallery
+	configuration Debug
+end
+
+file HaikuGallery.rdef
+
+group src
+	file src/App.cpp
+	file src/App.h
+	file src/MainWindow.cpp
+	file src/MainWindow.h
+	file src/NavigationList.cpp
+	file src/NavigationList.h
+	file src/PageRegistry.cpp
+	file src/PageRegistry.h
+	group pages
+		file src/pages/AlertPage.cpp
+		file src/pages/AlertPage.h
+		file src/pages/BoxPage.cpp
+		file src/pages/BoxPage.h
+		file src/pages/ButtonPage.cpp
+		file src/pages/ButtonPage.h
+		file src/pages/CardLayoutPage.cpp
+		file src/pages/CardLayoutPage.h
+		file src/pages/CheckBoxPage.cpp
+		file src/pages/CheckBoxPage.h
+		file src/pages/ColorControlPage.cpp
+		file src/pages/ColorControlPage.h
+		file src/pages/FilePanelPage.cpp
+		file src/pages/FilePanelPage.h
+		file src/pages/GalleryPage.cpp
+		file src/pages/GalleryPage.h
+		file src/pages/GridLayoutPage.cpp
+		file src/pages/GridLayoutPage.h
+		file src/pages/GroupLayoutPage.cpp
+		file src/pages/GroupLayoutPage.h
+		file src/pages/HomePage.cpp
+		file src/pages/HomePage.h
+		file src/pages/ListViewPage.cpp
+		file src/pages/ListViewPage.h
+		file src/pages/MenuBarPage.cpp
+		file src/pages/MenuBarPage.h
+		file src/pages/MenuFieldPage.cpp
+		file src/pages/MenuFieldPage.h
+		file src/pages/OptionPopUpPage.cpp
+		file src/pages/OptionPopUpPage.h
+		file src/pages/OutlineListViewPage.cpp
+		file src/pages/OutlineListViewPage.h
+		file src/pages/PopUpMenuPage.cpp
+		file src/pages/PopUpMenuPage.h
+		file src/pages/RadioButtonPage.cpp
+		file src/pages/RadioButtonPage.h
+		file src/pages/ScrollViewPage.cpp
+		file src/pages/ScrollViewPage.h
+		file src/pages/SeparatorViewPage.cpp
+		file src/pages/SeparatorViewPage.h
+		file src/pages/SliderPage.cpp
+		file src/pages/SliderPage.h
+		file src/pages/SplitViewPage.cpp
+		file src/pages/SplitViewPage.h
+		file src/pages/StatusBarPage.cpp
+		file src/pages/StatusBarPage.h
+		file src/pages/StringViewPage.cpp
+		file src/pages/StringViewPage.h
+		file src/pages/TabViewPage.cpp
+		file src/pages/TabViewPage.h
+		file src/pages/TextControlPage.cpp
+		file src/pages/TextControlPage.h
+		file src/pages/TextViewPage.cpp
+		file src/pages/TextViewPage.h
+		file src/pages/ToolTipPage.cpp
+		file src/pages/ToolTipPage.h
+	end
+end

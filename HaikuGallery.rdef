@@ -1,0 +1,19 @@
+/*
+ * Haiku Gallery - application resources.
+ */
+
+resource app_signature "application/x-vnd.Druware-HaikuGallery";
+
+resource app_flags B_SINGLE_LAUNCH;
+
+resource app_version {
+	major  = 1,
+	middle = 0,
+	minor  = 0,
+
+	variety = B_APPV_DEVELOPMENT,
+	internal = 0,
+
+	short_info = "Haiku Gallery",
+	long_info = "Haiku Gallery 1.0, a tour of the Haiku Interface Kit. \xC2\xA9 2026 Druware"
+};
