@@ -31,8 +31,9 @@ Open panel: B_REFS_RECEIVED (or your message) with entry_ref `refs` fields. Save
 
 ```cpp
 BMessenger target(this);
+BMessage openMessage(MSG_OPEN_FILES);
 fOpenPanel = new BFilePanel(B_OPEN_PANEL, &target, NULL, B_FILE_NODE,
-	true, new BMessage(MSG_OPEN_FILES));
+	true, &openMessage);
 fOpenPanel->Show();
 
 // later: delete fOpenPanel;
