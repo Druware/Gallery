@@ -27,8 +27,9 @@ public:
 
 	virtual void Select(int32 index)
 	{
+		int32 previous = Selection();
 		BTabView::Select(index);
-		if (Window() != NULL) {
+		if (Window() != NULL && index != previous) {
 			BMessage message(MSG_TB_SELECTED);
 			message.AddInt32("index", index);
 			Window()->PostMessage(&message);

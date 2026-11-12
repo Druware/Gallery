@@ -35,7 +35,7 @@ Haiku Gallery targets Haiku R1/beta5 or newer and builds with the system GCC (C+
 2. Build:
 
    ```sh
-   cd "Haiku Gallery"
+   cd Gallery
    make
    ```
 

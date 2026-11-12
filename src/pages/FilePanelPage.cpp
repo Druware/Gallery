@@ -114,9 +114,10 @@ FilePanelPage::_ShowPanel(bool save)
 	BMessenger target(Window());
 	uint32 flavors = fDirectories->Value() == B_CONTROL_ON
 		? B_DIRECTORY_NODE : B_FILE_NODE;
+	BMessage message(save ? MSG_FP_SAVED : MSG_FP_OPENED);
 	fPanel = new BFilePanel(save ? B_SAVE_PANEL : B_OPEN_PANEL, &target,
 		NULL, save ? 0 : flavors, fMultiple->Value() == B_CONTROL_ON,
-		new BMessage(save ? MSG_FP_SAVED : MSG_FP_OPENED));
+		&message);
 	fPanel->Show();
 	LogEvent("Showing %s panel", save ? "save" : "open");
 }

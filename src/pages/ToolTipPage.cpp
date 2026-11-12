@@ -115,7 +115,8 @@ ToolTipPage::HandleMessage(BMessage* message)
 	switch (message->what) {
 		case MSG_TT_TEXT:
 			_Apply();
-			LogEvent("SetToolTip(\"%s\")", fText->Text());
+			if (fEnabled->Value() == B_CONTROL_ON)
+				LogEvent("SetToolTip(\"%s\")", fText->Text());
 			return true;
 
 		case MSG_TT_ENABLED:

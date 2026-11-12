@@ -85,6 +85,7 @@ GridLayoutPage::CreateSample()
 			0, 1)
 		.AddMenuField(new BMenuField("country", "Country:", menu), 0, 2)
 		.Add(new BButton("wide", "Spans two columns", NULL), 0, 3, 2, 1);
+	fGrid->SetColumnWeight(0, 0.0f);
 
 	return gridView;
 }
