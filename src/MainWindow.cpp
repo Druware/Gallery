@@ -130,9 +130,9 @@ MainWindow::MessageReceived(BMessage* message)
 
 		case MSG_TOGGLE_NAV:
 		{
-			bool show = !fShowNavItem->IsMarked();
-			fShowNavItem->SetMarked(show);
+			bool show = fSplit->IsItemCollapsed(0);
 			fSplit->SetItemCollapsed(0, !show);
+			fShowNavItem->SetMarked(show);
 			break;
 		}
 

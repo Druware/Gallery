@@ -117,6 +117,20 @@ BoxPage::_UpdateLabel()
 		fBox->SetLabel(check);
 	} else
 		fBox->SetLabel(fLabel->Text());
+
+	// The new label is never an unticked check box, so the group is enabled.
+	_SetContentEnabled(true);
+}
+
+
+void
+BoxPage::_SetContentEnabled(bool enabled)
+{
+	for (int32 i = 0; i < fContent->CountChildren(); i++) {
+		BControl* control = dynamic_cast<BControl*>(fContent->ChildAt(i));
+		if (control != NULL)
+			control->SetEnabled(enabled);
+	}
 }
 
 
@@ -146,12 +160,7 @@ BoxPage::HandleMessage(BMessage* message)
 			BControl* check = NULL;
 			message->FindPointer("source", (void**)&check);
 			bool enabled = check == NULL || check->Value() == B_CONTROL_ON;
-			for (int32 i = 0; i < fContent->CountChildren(); i++) {
-				BControl* control = dynamic_cast<BControl*>(
-					fContent->ChildAt(i));
-				if (control != NULL)
-					control->SetEnabled(enabled);
-			}
+			_SetContentEnabled(enabled);
 			LogEvent("Label check box: group %s",
 				enabled ? "enabled" : "disabled");
 			return true;

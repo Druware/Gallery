@@ -28,6 +28,7 @@ protected:
 
 private:
 			void				_UpdateLabel();
+			void				_SetContentEnabled(bool enabled);
 
 			BBox*				fBox;
 			BView*				fContent;
