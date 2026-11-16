@@ -1,0 +1,85 @@
+# Haiku Gallery - jam build file (mirrors the makefile-engine Makefile).
+# Build with `jam` on Haiku; output goes to generated/HaikuGallery.
+# Uses only stock Jambase rules plus the small resource rules below.
+
+C++ = g++ ;
+LINK = g++ ;    # g++ as the linker pulls in the C++ standard library
+C++FLAGS = -std=c++17 -Wall ;    # C++ only, so it never reaches rc
+OPTIM = -O2 ;
+
+# Sources are listed by name and found via SEARCH_SOURCE; the Object rule
+# also turns SEARCH_SOURCE into -I flags. All basenames are unique, so
+# every object can live flat in generated/.
+SEARCH_SOURCE = src src/pages ;
+LOCATE_TARGET = generated ;
+
+# Attach compiled resources to an executable and set its MIME type.
+# The binary depends on the .rsrc, so editing the .rdef relinks it; the
+# XRes and MimeSet actions run after Link because they are invoked later.
+rule AddResources
+{
+	local rsrc = $(>:S=.rsrc) ;
+	MakeLocate $(rsrc) : $(LOCATE_TARGET) ;
+	Depends $(rsrc) : $(>) ;
+	Rc $(rsrc) : $(>) ;
+	Clean clean : $(rsrc) ;
+
+	Depends $(<) : $(rsrc) ;
+	XRes $(<) : $(rsrc) ;
+	MimeSet $(<) ;
+}
+
+actions Rc
+{
+	rc -o $(<) $(>)
+}
+
+actions XRes
+{
+	xres -o $(<) $(>)
+}
+
+actions MimeSet
+{
+	mimeset -f $(<)
+}
+
+Main HaikuGallery :
+	App.cpp
+	MainWindow.cpp
+	NavigationList.cpp
+	PageRegistry.cpp
+	AlertPage.cpp
+	BoxPage.cpp
+	ButtonPage.cpp
+	CardLayoutPage.cpp
+	CheckBoxPage.cpp
+	ColorControlPage.cpp
+	FilePanelPage.cpp
+	GalleryPage.cpp
+	GridLayoutPage.cpp
+	GroupLayoutPage.cpp
+	HomePage.cpp
+	ListViewPage.cpp
+	MenuBarPage.cpp
+	MenuFieldPage.cpp
+	OptionPopUpPage.cpp
+	OutlineListViewPage.cpp
+	PopUpMenuPage.cpp
+	RadioButtonPage.cpp
+	ScrollViewPage.cpp
+	SeparatorViewPage.cpp
+	SliderPage.cpp
+	SplitViewPage.cpp
+	StatusBarPage.cpp
+	StringViewPage.cpp
+	TabViewPage.cpp
+	TextControlPage.cpp
+	TextViewPage.cpp
+	ToolTipPage.cpp
+	;
+
+# be: Application/Interface/Storage kits; tracker: BFilePanel.
+LINKLIBS on HaikuGallery = -lbe -ltracker ;
+
+AddResources HaikuGallery : HaikuGallery.rdef ;
